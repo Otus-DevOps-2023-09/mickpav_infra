@@ -24,7 +24,7 @@ set INTERNALHOST="10.128.0.26"
 
 Решение:
 
-Создаnm файл ~/.ssh/config со следующим содержимым:
+Создать файл ~/.ssh/config со следующим содержимым:
 
 Host someinternalhost
 
