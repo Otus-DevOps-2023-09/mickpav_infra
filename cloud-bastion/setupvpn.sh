@@ -1,4 +1,3 @@
-cat <<EOF> setupvpn.sh
 #!/bin/bash
 echo "deb http://repo.pritunl.com/stable/apt focal main" | sudo tee /etc/apt/sources.list.d/pritunl.list
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
@@ -12,4 +11,3 @@ apt -y install mongodb-org
 apt -y install pritunl
 systemctl enable mongod pritunl
 systemctl start mongod pritunl
-EOF
