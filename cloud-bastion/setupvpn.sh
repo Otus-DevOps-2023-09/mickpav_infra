@@ -11,3 +11,4 @@ apt -y install mongodb-org
 apt -y install pritunl
 systemctl enable mongod pritunl
 systemctl start mongod pritunl
+
