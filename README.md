@@ -46,3 +46,38 @@ User appuser
 bastion_IP = 158.160.123.184
 
 someinternalhost_IP = 10.128.0.26
+
+
+ДЗ 4
+
+Деплой приложения
+
+1. Установка и настройка YC CLI на рабочем месте.
+2. Развертывание инстанса ВМ в ЯО
+3. Развертывание Ruby на ВМ
+4. Развертывание MongoDB на ВМ
+5. Разверытвание и запуск приложения на ВМ
+
+testapp_IP=158.160.63.190
+
+testapp_port=9292
+
+Самостоятельная работа:
+оформлены скрипты:
+- install_ruby.sh
+- install_mongodb.sh
+- deploy.sh
+
+Дополнительное задание
+
+Создание инстанса ВМ с автоматическим деплоем приложения и зависимостей
+
+yc compute instance create \
+--name reddit-app \
+--hostname reddit-app \
+--memory=4 \
+--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+--metadata serial-port-enable=1 \
+--zone=ru-central1-a \
+--metadata-from-file user-data=startup.yaml
