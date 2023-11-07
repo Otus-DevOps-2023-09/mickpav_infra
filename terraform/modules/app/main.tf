@@ -4,7 +4,7 @@
 #      source = "yandex-cloud/yandex"
 #     #version = "~>0.35"
 #    }
-3  }
+#  }
 #  required_version = ">= 0.13"
 #}
 resource "yandex_compute_instance" "app" {
