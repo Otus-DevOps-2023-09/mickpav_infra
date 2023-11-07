@@ -48,6 +48,6 @@ variable "access_key" {
 variable "secret_key" {
   description = "s3 bucket secret key"
 }
-variable "bucket_name" {
-  description = "s3 bucket name"
+variable "db_url" {
+  description = "db URL"
 }
