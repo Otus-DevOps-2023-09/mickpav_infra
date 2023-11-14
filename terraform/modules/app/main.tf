@@ -6,7 +6,7 @@
 #    }
 #  }
 #  required_version = ">= 0.13"
-}
+#}
 resource "yandex_compute_instance" "app" {
   name = "reddit-app"
 
