@@ -49,5 +49,5 @@ variable "secret_key" {
   description = "s3 bucket secret key"
 }
 variable "db_url" {
-  description = "db URL"
+  description = "db IP"
 }

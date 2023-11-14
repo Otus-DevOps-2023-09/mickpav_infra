@@ -1,12 +1,12 @@
-#terraform {
-#  required_providers {
-#    yandex = {
-#      source = "yandex-cloud/yandex"
-#     #version = "~>0.35"
-#    }
-3  }
-#  required_version = ">= 0.13"
-#}
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+      version = "~>0.35"
+    }
+  }
+  required_version = ">= 0.13"
+}
 resource "yandex_compute_instance" "app" {
   name = "reddit-app"
 
@@ -28,8 +28,12 @@ resource "yandex_compute_instance" "app" {
   private_key = file(var.private_key_path)
 }
 provisioner file {
-  content     = templatefile("${path.module}/puma.service", { user = var.ssh_user, db_url = var.db_url })
+  content     = templatefile("${path.module}/puma.service", { user = var.ssh_user, db_url = var.db_url})
   destination = "/tmp/puma.service"
+}
+
+provisioner "remote-exec" {
+  script = "${path.module}/deploy.sh"
 }
 
   boot_disk {

@@ -1,12 +1,12 @@
-#terraform {
-#  required_providers {
-#    yandex = {
-#      source = "yandex-cloud/yandex"
-#      version = "~>0.35"
-#    }
-#  }
-#  required_version = ">= 0.13"
-#}
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+      version = "~>0.35"
+    }
+  }
+  required_version = ">= 0.13"
+}
 provider "yandex" {
   token     = var.token_id
   cloud_id  = var.cloud_id
@@ -20,14 +20,15 @@ module "app" {
   app_disk_image   = var.app_disk_image
   subnet_id        = var.subnet_id
   ssh_user         = "ubuntu"
-  db_url           = var.db_url
+  db_url            = module.db.external_ip_address_db
 }
 
 module "db" {
   source          = "../modules/db"
-  public_key_path = var.public_key_path
+  public_key_path = var.public_key_path  
+  private_key_path = var.private_key_path
   db_disk_image   = var.db_disk_image
-  subnet_id       = var.subnet_id
+  subnet_id       = module.vpc.app_subnet_id
 }
 module "vpc" {
   source = "../modules/vpc"
