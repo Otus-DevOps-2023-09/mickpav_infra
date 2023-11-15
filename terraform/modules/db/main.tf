@@ -2,7 +2,7 @@
 #  required_providers {
 #    yandex = {
 #      source = "yandex-cloud/yandex"
-      #version = "~>0.35"
+#      version = "~>0.35"
 #    }
 #  }
 #  required_version = ">= 0.13"
@@ -21,6 +21,12 @@ resource "yandex_compute_instance" "db" {
   scheduling_policy {
     preemptible = "true"
   }
+  connection {
+  type    = "ssh"
+  host    = self.network_interface.0.nat_ip_address
+  user    = "ubuntu"
+  private_key = file(var.private_key_path)
+}
 
   boot_disk {
     initialize_params {
@@ -32,7 +38,9 @@ resource "yandex_compute_instance" "db" {
     subnet_id = var.subnet_id
     nat       = true
   }
-
+provisioner "remote-exec" {
+    script = "${path.module}/deploy.sh"
+  }
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }

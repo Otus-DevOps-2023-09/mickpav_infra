@@ -9,7 +9,7 @@ variable subnet_id {
   description = "Subnets for modules"
 }
 variable db_url {
-  description = "URL for mongo-db"
+  description = "ip for mongo-db"
 }
 variable private_key_path {
   description = "path to private key"
