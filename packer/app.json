@@ -16,7 +16,6 @@
         {
             "type": "ansible",
             "playbook_file": "ansible/packer_app.yml",
-#            "use_proxy": "false"
         }
     ]
 }
