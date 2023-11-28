@@ -1,8 +1,8 @@
 plugin: community.general.yc_compute
 auth_kind: "serviceaccountfile"
-service_account_file: "/home/michael/key.json"
+service_account_file: "/packer/key.json"
 folders:
-   - b1g91p2spmjgqtkfjh67
+   - b**************
 hostnames:
    - public_ip
 compose:
