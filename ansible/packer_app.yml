@@ -4,7 +4,7 @@
   become: true
   tasks:
     - name: Update Apt cache & install packages for app
-      ansible.builtin.apt:
+      apt:
         pkg:
         - ruby-full
         - ruby-bundler
