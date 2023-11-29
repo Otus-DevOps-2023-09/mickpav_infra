@@ -16,14 +16,14 @@ client = yc.ComputeClient(service_account_key=credentials)
 clients = client.instances_in_folder(folder_id)
 
 
-    
+
 db_name = clients[0].name
 app_name = clients[1].name
 
 
 # получаем IP хостов
-app_ip = clients[0].network_interfaces[0].primary_v4_address.one_to_one_nat.address
-db_ip = clients[1].network_interfaces[0].primary_v4_address.one_to_one_nat.address
+db_ip = clients[0].network_interfaces[0].primary_v4_address.one_to_one_nat.address
+app_ip = clients[1].network_interfaces[0].primary_v4_address.one_to_one_nat.address
 
 
 data = \
@@ -58,6 +58,3 @@ a = json.dumps(data)
 f= open('inventory.json', 'w')
 f.write(json.dumps(data, indent=4))
 f.close()
-
-
-

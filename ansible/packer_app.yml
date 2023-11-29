@@ -1,0 +1,12 @@
+---
+- name: Install Ruby & Bundler
+  hosts: all
+  become: true
+  tasks:
+    - name: Update Apt cache & install packages for app
+      ansible.builtin.apt:
+        pkg:
+        - ruby-full
+        - ruby-bundler
+        - build-essential
+        update_cache: yes
