@@ -6,7 +6,7 @@ from sys import argv
 
 options = ['--list', '--host']
 
-folder_id = 'b1g91p2spmjgqtkfjh67'
+folder_id = 'b**************'
 
 with open('/home/michael/key.json', 'r') as infile:
     credentials = json.load(infile)
@@ -16,7 +16,7 @@ client = yc.ComputeClient(service_account_key=credentials)
 clients = client.instances_in_folder(folder_id)
 
 
-    
+
 db_name = clients[0].name
 app_name = clients[1].name
 
@@ -58,6 +58,3 @@ a = json.dumps(data)
 f= open('inventory.json', 'w')
 f.write(json.dumps(data, indent=4))
 f.close()
-
-
-

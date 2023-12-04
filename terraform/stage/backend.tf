@@ -8,8 +8,5 @@ terraform {
     secret_key                  = "YCPWW2klgey8U8vQdOmvA47oclOqEC5kQqj_YaTY"
     skip_region_validation      = true
     skip_credentials_validation = true
-    force_destroy               = true
-
   }
 }
-
