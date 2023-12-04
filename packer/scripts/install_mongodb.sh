@@ -6,3 +6,4 @@ sleep 1m
 apt install -y mongodb-org
 systemctl start mongod
 systemctl enable mongod
+
