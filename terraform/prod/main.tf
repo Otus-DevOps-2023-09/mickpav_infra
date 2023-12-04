@@ -1,12 +1,12 @@
-#terraform {
-#  required_providers {
-#    yandex = {
-#      source = "yandex-cloud/yandex"
-#      version = "~>0.35"
-#    }
-#  }
-#  required_version = ">= 0.13"
-#}
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+      version = "~>0.35"
+    }
+  }
+  required_version = ">= 0.13"
+}
 provider "yandex" {
   token     = var.token_id
   cloud_id  = var.cloud_id
@@ -25,7 +25,7 @@ module "app" {
 
 module "db" {
   source          = "../modules/db"
-  public_key_path = var.public_key_path  
+  public_key_path = var.public_key_path
   private_key_path = var.private_key_path
   db_disk_image   = var.db_disk_image
   subnet_id       = module.vpc.app_subnet_id
