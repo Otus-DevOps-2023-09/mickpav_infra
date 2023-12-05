@@ -1,16 +1,17 @@
-#terraform {
-#  required_providers {
-#    yandex = {
-#      source = "yandex-cloud/yandex"
-#      version = "~>0.35"
-#    }
-#  }
-#  required_version = ">= 0.13"
-#}
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+      version = "~>0.35"
+    }
+  }
+  required_version = ">= 0.13"
+}
 resource "yandex_compute_instance" "db" {
   name = "reddit-db"
   labels = {
     tags = "reddit-db"
+    group = "db"
   }
 
   resources {
@@ -38,9 +39,9 @@ resource "yandex_compute_instance" "db" {
     subnet_id = var.subnet_id
     nat       = true
   }
-provisioner "remote-exec" {
-    script = "${path.module}/deploy.sh"
-  }
+#provisioner "remote-exec" {
+#    script = "${path.module}/deploy.sh"
+#  }
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
